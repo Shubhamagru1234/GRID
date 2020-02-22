@@ -1,0 +1,62 @@
+$colors: (
+    primary:red,
+    accent: blue,
+    card: white,
+    span: green
+);
+$padding: 15px;
+@function color($color-name){
+    @return map-get($colors, $color-name)
+}
+$desktop: 840px;
+@mixin desktop {
+    @media (min-width:($desktop)){
+        @content;
+        // background-color: color(primary);
+    }
+}
+body,html{
+    height: 100px;
+}
+
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 0px;
+    @include desktop{
+        color: color(span);
+    }
+    // background-color: map-get($colors, primary);
+    #bg {
+        // clip-path: polygon(100% 0, 100% 78%, 48% 100%, 0 100%, 0 0);
+        // clip-path: polygon(50% 0%, 0 56%, 98% 56%);
+        // clip-path: polygon(50% 0%, 0 79%, 100% 81%);
+        
+clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%);
+        background-color: color(primary);
+        // z-index: 1;
+        position: absolute;
+        height: 500px;
+    }
+    #card{
+        background-color: color(card);
+        color: color(accent);
+        margin: 0px 10px;
+        border-radius: 10px;
+        box-shadow: 5px 5px 1px black;
+    }
+    header a{
+        color: color(card);
+        text-decoration: none;
+        padding: $padding;
+        display: block;
+    }
+    main{
+        section{
+            h1{
+                @include desktop{
+                    margin: 100px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,51 @@
+$color:(
+    primary: red,
+    head: pink,
+    yum: yellow,
+    nom: black,
+    candy: green,
+    footer: orange,
+    color: white
+);
+body{
+    margin: 0px;
+    height: 100vh;
+}
+.grid-container{
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 1.5fr;
+    grid-template-rows: 1fr 4fr 3fr 2fr;
+    height: 100vh;
+    margin: 2em;
+}
+main{
+    // grid-column-start: 1;
+    // grid-column-end: 3;
+    // grid-row-start: 1;
+    // grid-row-end: 3;
+    // grid-column: 1/3;
+    // grid-row: 1/3;
+    grid-area: 1/1/3/3;
+    background-color: map-get($color ,primary);
+}
+.nom{
+    grid-area: 3/1/4/2;
+    background-color: map-get($color ,nom);
+    color: map-get($color, color);
+}
+.yum{
+    grid-area: 3/2/4/3;
+    background-color: map-get($color, yum);
+}
+.diab{
+    grid-area: 4/1/5/3;
+    background-color: map-get($color ,footer);
+}
+header{
+    grid-area: 1/3/2/5;
+    background-color: map-get($color, head);
+}
+.candy{
+    grid-area: 2/3/5/4;
+    background-color: map-get($color, candy);
+}
